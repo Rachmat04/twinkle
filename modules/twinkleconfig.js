@@ -325,7 +325,7 @@ Twinkle.config.sections = [
 			name: "markRevertedPagesAsMinor",
 			label: "Tandai sebagai suntingan kecil pada pengembalian ini",
 			type: "set",
-			setValues: { agf: "Pen"AGF rollback", norm: "Normal rollback", vand: "Vandalism rollback", torev: "\"Restore this version\"" }
+			setValues: { agf: "AGF rollback", norm: "Normal rollback", vand: "Vandalism rollback", torev: "\"Restore this version\"" }
 		},
 
 		// TwinkleConfig.watchRevertedPages (array)
