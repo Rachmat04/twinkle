@@ -20,7 +20,7 @@ Twinkle.tag = function friendlytag() {
 	// redirect tagging
 	if( Morebits.wiki.isPageRedirect() ) {
 		Twinkle.tag.mode = 'redirect';
-		Twinkle.addPortletLink( Twinkle.tag.callback, "Tag", "tag ramah pengguna", "Tag pengalihan" );
+		Twinkle.addPortletLink( Twinkle.tag.callback, "Tag", "friendly-tag", "Tag redirect" );
 	}
 	// file tagging
 	else if( mw.config.get('wgNamespaceNumber') === 6 && !document.getElementById("mw-sharedupload") && document.getElementById("mw-imagepage-section-filehistory") ) {
@@ -130,7 +130,7 @@ Twinkle.tag.callback = function friendlytagCallback() {
 			break;
 
 		default:
-			alert("Twinkle.tag: moda tak dikenal " + Twinkle.tag.mode);
+			alert("Twinkle.tag: unknown mode " + Twinkle.tag.mode);
 			break;
 	}
 
@@ -198,8 +198,8 @@ Twinkle.tag.updateSortOrder = function(e) {
 				checkbox.subgroup = {
 					name: 'expertSubject',
 					type: 'input',
-					label: 'Nama WikiProject terkait: ',
-					tooltip: 'Opsional. Berikan nama WikiProject yang dapat membantu merekrut pengguna ahli. Jangan berikan awalan "WikiProject".'
+					label: 'Nama ProyekWiki terkait: ',
+					tooltip: 'Opsional. Berikan nama ProyekWiki yang dapat membantu merekrut pengguna ahli. Jangan berikan awalan "ProyekWiki".'
 				};
 				break;
 			case "globalize":
@@ -207,10 +207,10 @@ Twinkle.tag.updateSortOrder = function(e) {
 					name: 'globalize',
 					type: 'select',
 					list: [
-						{ label: "{{globalize}}: artikel mungkin tidak mewakili keseluruhan subjek yang dibahas", value: "globalize" },
+						{ label: "{{globalize}}: artikel ini mungkin tidak mewakili keseluruhan subjek yang dibahas", value: "globalize" },
 						// daftar di bawah disembunyikan dahulu
-						/* {
-							label: "Subtemplat {{globalize}} mengenai wilayah",
+						{
+							label: "Subtemplat {{globalize}} terkait dengan wilayah yang spesifik",
 							list: [
 								{ label: "{{globalize/Australia}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Australia", value: "globalize/Australia" },
 								{ label: "{{globalize/Canada}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Kanada", value: "globalize/Canada" },
@@ -218,20 +218,20 @@ Twinkle.tag.updateSortOrder = function(e) {
 								{ label: "{{globalize/Common law}}: artikel berisi konten yang dibuat terutama dalam sudut pandang hukum secara umum", value: "globalize/Common law" },
 								{ label: "{{globalize/Eng}}: artikel berisi konten yang dibuat terutama dalam sudut pandang pengguna bahasa Inggris", value: "globalize/Eng" },
 								{ label: "{{globalize/Europe}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Eropa", value: "globalize/Europe" },
-								{ label: "{{globalize/France}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Peranc", value: "globalize/France" },
-								{ label: "{{globalize/Germany}}: article deals primarily with the German viewpoint", value: "globalize/Germany" },
-								{ label: "{{globalize/India}}: article deals primarily with the Indian viewpoint", value: "globalize/India" },
-								{ label: "{{globalize/Middle East}}: article deals primarily with the Middle Eastern viewpoint", value: "globalize/Middle East" },
-								{ label: "{{globalize/North America}}: article deals primarily with the North American viewpoint", value: "globalize/North America" },
-								{ label: "{{globalize/Northern}}: article deals primarily with the northern hemisphere viewpoint", value: "globalize/Northern" },
-								{ label: "{{globalize/Southern}}: article deals primarily with the southern hemisphere viewpoint", value: "globalize/Southern" },
-								{ label: "{{globalize/South Africa}}: article deals primarily with the South African viewpoint", value: "globalize/South Africa" },
-								{ label: "{{globalize/UK}}: article deals primarily with the British viewpoint", value: "globalize/UK" },
-								{ label: "{{globalize/UK and Canada}}: article deals primarily with the British and Canadian viewpoints", value: "globalize/UK and Canada" },
-								{ label: "{{globalize/US}}: article deals primarily with the USA viewpoint", value: "globalize/US" },
-								{ label: "{{globalize/West}}: article deals primarily with the viewpoint of Western countries", value: "globalize/West" }
+								{ label: "{{globalize/France}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Perancis", value: "globalize/France" },
+								{ label: "{{globalize/Germany}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Jerman", value: "globalize/Germany" },
+								{ label: "{{globalize/India}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat India", value: "globalize/India" },
+								{ label: "{{globalize/Middle East}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Timur Tengah", value: "globalize/Middle East" },
+								{ label: "{{globalize/North America}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Amerika Utara", value: "globalize/North America" },
+								{ label: "{{globalize/Northern}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat belahan bumi utara", value: "globalize/Northern" },
+								{ label: "{{globalize/Southern}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat belahan bumi selatan", value: "globalize/Southern" },
+								{ label: "{{globalize/South Africa}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Afrika Selatan", value: "globalize/South Africa" },
+								{ label: "{{globalize/UK}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Inggris", value: "globalize/UK" },
+								{ label: "{{globalize/UK and Canada}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Kanada", value: "globalize/UK and Canada" },
+								{ label: "{{globalize/US}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat Amerika Serikat", value: "globalize/US" },
+								{ label: "{{globalize/West}}: artikel berisi konten yang dibuat terutama dalam sudut pandang masyarakat negara-negara Barat", value: "globalize/West" }
 							]
-						} */
+						}
 					]
 				};
 				break;
@@ -273,7 +273,7 @@ Twinkle.tag.updateSortOrder = function(e) {
 						type: 'textarea',
 						label: 'Alasan penggabungan (akan dikirimkan ke ' +
 							(tag === "digabungkan ke" ? 'artikel lainnya' : 'artikel ini') + ' halaman pembicaraan):',
-						tooltip: 'Opsional, namun sangat disarankan. Kosongkan jika tidak diinginkan. Hanya tersedia jika nama artikel tunggal diberikan.'
+						tooltip: 'Opsional, namun disarankan untuk diisi. Kosongkan jika tidak diinginkan. Hanya tersedia jika nama artikel tunggal diberikan.'
 					});
 				}
 				break;
@@ -295,7 +295,7 @@ Twinkle.tag.updateSortOrder = function(e) {
 							{
 								label: 'Beritahukan pembuat artikel',
 								checked: true,
-								tooltip: "Tempatkan {{uw-notenglish}} di halaman pembicaraannya."
+								tooltip: "Tempatkan {{uw-notindonesian}} di halaman pembicaraannya."
 							}
 						]
 					});
@@ -305,7 +305,7 @@ Twinkle.tag.updateSortOrder = function(e) {
 					type: 'checkbox',
 					list: [
 						{
-							label: 'Daftarkan artikel ini sebagai artikel yang memerlukan penerjemahan ke bahasa Indonesia',
+							label: 'Daftarkan artikel ini sebagai artikel yang memerlukan penerjemahan ke dalam bahasa Indonesia',
 							checked: true
 						}
 					]
@@ -313,7 +313,7 @@ Twinkle.tag.updateSortOrder = function(e) {
 				checkbox.subgroup.push({
 					name: 'translationComments',
 					type: 'textarea',
-					label: 'Komentar tembahan',
+					label: 'Komentar tambahan',
 					tooltip: 'Opsional.'
 				});
 				break;
@@ -321,7 +321,7 @@ Twinkle.tag.updateSortOrder = function(e) {
 				checkbox.subgroup = {
 					name: 'notability',
 					type: 'select',
-					 list: [
+					list: [
 						{ label: "{{notability}}: subjek artikel mungkin tidak memenuhi kelayakan secara umum", value: "none" },
 						{ label: "{{notability|Academics}}: pedoman kelayakan untuk akademik", value: "Academics" },
 						{ label: "{{notability|Biographies}}: pedoman kelayakan untuk biografi", value: "Biographies" },
@@ -331,8 +331,6 @@ Twinkle.tag.updateSortOrder = function(e) {
 						{ label: "{{notability|Films}}: pedoman kelayakan untuk film", value: "Films" },
 						{ label: "{{notability|Places}}: pedoman kelayakan untuk tempat/lokasi", value: "Places" },
 						{ label: "{{notability|Music}}: pedoman kelayakan untuk musik", value: "Music" },
-						/* { label: "{{notability|Neologisms}}: pedoman kelayakan untuk neologisme", value: "Neologisms" },
-						{ label: "{{notability|Numbers}}: pedoman kelayakan untuk angka", value: "Numbers" }, */
 						{ label: "{{notability|Products}}: pedoman kelayakan untuk produk dan layanan", value: "Products" },
 						{ label: "{{notability|Sport}}: pedoman kelayakan untuk olahraga", value: "Sport" },
 						{ label: "{{notability|Web}}: pedoman kelayakan untuk isi situs", value: "Web" }
@@ -425,85 +423,82 @@ Twinkle.tag.article = {};
 // To ensure tags appear in the default "categorized" view, add them to the tagCategories hash below.
 
 Twinkle.tag.article.tags = {
-	"advert": "artikel ditulis seperti iklan",
-	"all plot": "artikel hampir semuanya ringkasan alur",
-	"autobiography": "artikel adalah otobiografi yang tidak ditulis secara netral",
-	"BLP sources": "artikel tokoh yang masih hidup perlu referensi lebih banyak untuk diperiksa",
-	"BLP unsourced": "artikel tokoh yang masih hidup yang tidak punya referensi",
-	"citation style": "artikel yang kutipannya tidak jelas atau tak konsisten",
-	"cleanup": "artikel memerlukan perapian",
-	"cleanup-reorganize": "artikel memerlukan pengubahan struktur agar sesuai dengan pedoman Wikipedia",
-	"close paraphrasing": "artikel mengandung parafrasa yang mirip dengan sumber tidak bebas berhak cipta",
-	"COI": "pembuat artikel memiliki konflik kepentingan",
-	"condense": "artikel mungkin punya banyak kepala bagian yang membagi-bagi isinya",
-	"confusing": "artikel tidak memiliki isi yang jelas (membingungkan)",
-	"context": "konteks isi artikel tidak mencukupi",
-	"copy edit": "artikel butuh perbaikan pada tata bahasa, gaya, relasi antarparagrag, dan/atau ejaan",
-	"copypaste": "artikel terkesan disalin dari sebuah sumber",
-	"dead end": "artikel tidak punya hubungan dengan artikel lain",
-	"disputed": "akurasi aktual isi halaman dipertanyakan",
-	"essay-like": "artikel ditulis seperti esai atau opini",
-	"expand language": "artikel dapat dikembangkan dengan materi dari Wikipedia bahasa lain",
-	"expert-subject": "artikel perlu dilihat oleh pengguna yang ahli di bidang ini",
-	"external links": "pranala luar artikel tidak mengikuti pedoman dan kebijakan",
-	"fansite": "artikel mirip dengan situs penggemar",
-	"fiction": "artikel tidak dapat dibedakan antara nyata atau fiksi",
-	"globalize": "artikel tidak mewakili sudut pandang umum subjek tersebut",
-	/* "GOCEinuse": "article is currently undergoing a major copy edit by the Guild of Copy Editors", */
-	"hoax": "artikel berisi informasi palsu",
-	"improve categories": "artikel butuh kategori tambahan",
-	"incomprehensible": "artikel sulit untuk dipahami atau tidak komprehensif",
-	"in-universe": "subjek artikel adalah fiksi dan butuh gaya penulisan dari sudut pandang nonfiksi",
-	"in use": "artikel dalam pengembangan dalam waktu dekat",
-	"lead missing": "artikel tidak memiliki bagian pengantar dan perlu ditulis",
-	"lead rewrite": "pengantar artikel tidak sesuai pedoman",
-	"lead too long": "pengantar artikel sangat panjang dan harus dibuat lebih ringkas",
-	"lead too short": "pengantar artikel sangat pendek dan harus dikembangkan",
-	"linkrot": "sumber referensi artikel sudah mati, dan penulisannya harus diperbaiki",
-	"manual": "gaya artikel mirip dengan buku pedoman",
+	"advert": "artikel ini ditulis seperti iklan",
+	"all plot": "artikel ini hampir semuanya berisi ringkasan alur",
+	"autobiography": "artikel ini adalah otobiografi yang tidak ditulis secara netral",
+	"BLP sources": "artikel tokoh yang masih hidup ini perlu referensi yang lebih banyak untuk diperiksa",
+	"BLP unsourced": "artikel tokoh yang masih hidup ini tidak punya referensi",
+	"citation style": "artikel ini kutipannya tidak jelas atau tak konsisten",
+	"cleanup": "artikel ini memerlukan perapian",
+	"cleanup-reorganize": "artikel ini memerlukan pengubahan struktur kalimat/paragraf agar sesuai dengan pedoman Wikipedia",
+	"close paraphrasing": "artikel ini mengandung parafrasa yang mirip dengan sumber tidak bebas berhak cipta",
+	"COI": "pembuat artikel ini memiliki konflik kepentingan",
+	"condense": "artikel ini mungkin punya banyak kepala bagian yang membagi-bagi isinya",
+	"confusing": "artikel ini tidak memiliki isi yang jelas (membingungkan)",
+	"context": "konteks isi artikel ini tidak memadai",
+	"copy edit": "artikel ini butuh perbaikan pada tata bahasa, gaya, relasi antarparagrag, dan/atau ejaan",
+	"copypaste": "artikel ini terkesan disalin dari sebuah sumber",
+	"dead end": "artikel ini tidak punya hubungan dengan artikel lain",
+	"disputed": "akurasi aktual isi artikel ini dipertanyakan",
+	"essay-like": "artikel ini ditulis seperti esai atau opini",
+	"expand language": "artikel ini mungkin dapat dikembangkan dengan materi dari Wikipedia bahasa lain",
+	"expert-subject": "artikel ini perlu dilihat oleh pengguna yang ahli di bidang ini",
+	"external links": "pranala luar artikel ini tidak mengikuti pedoman dan kebijakan",
+	"fansite": "artikel ini mirip dengan isi situs penggemar",
+	"fiction": "isi artikel ini tidak dapat dibedakan antara nyata atau fiksi",
+	"globalize": "isi artikel ini tidak mewakili sudut pandang umum subjek tersebut",
+	"hoax": "artikel ini berisi informasi palsu",
+	"improve categories": "artikel ini butuh kategori tambahan",
+	"incomprehensible": "artikel ini sulit untuk dipahami atau tidak komprehensif",
+	"in-universe": "subjek artikel ini fiksi dan butuh gaya penulisan dari sudut pandang nonfiksi",
+	"in use": "artikel ini sedang dalam pengembangan dalam waktu dekat",
+	"lead missing": "artikel ini tidak memiliki bagian pengantar dan perlu ditulis",
+	"lead rewrite": "pengantar artikel ini tidak sesuai pedoman",
+	"lead too long": "pengantar artikel ini sangat panjang dan harus dibuat lebih ringkas",
+	"lead too short": "pengantar artikel ini sangat pendek dan harus dikembangkan",
+	"linkrot": "sumber referensi artikel ini sudah mati, dan penulisannya harus diperbaiki",
+	"manual": "gaya artikel ini mirip dengan buku pedoman",
 	"merge": "artikel ini perlu digabungkan ke artikel lain",
 	"merge from": "artikel lain harus digabungkan ke artikel ini",
 	"merge to": "artikel ini harus digabungkan ke artikel lain",
-	/* "metricate": "article exclusively uses non-SI units of measurement", */
-	"more footnotes": "artikel sudah punya referensi, namun hanya punya sedikit catatan kaki",
-	"new unreviewed article": "tandai artikel untuk diperiksa nanti",
-	"news release": "gaya artikel mirip seperti berita",
-	"no footnotes": "artikel punya referensi, namun tidak punya catatan kaki",
-	"non-free": "artikel mungkin mengandung materi yang berhak cipta yang tidak digunakan sebagaimana mestinya",
-	"notability": "subjek artikel tidak memenuhi kelayakan",
-	"not Indonesian": "artikel tidak ditulis dalam bahasa Indonesia dan perlu diterjemahkan",
-	"one source": "artikel hanya merujuk pada sebuah sumber saja",
-	"original research": "artikel memiliki penggunaan riset asli klaim yang tidak terperiksa",
-	"orphan": "artikel tidak memiliki hubungan dengan artikel lain",
-	"overcoverage": "artikel mengandung anggapan atau cakupan tidak sesuai terhadap satu bagian atau lebih",
-	"overlinked": "artikel banyak mengandung pranala duplikat dan/atau tidak berhubungan",
-	"overly detailed": "artikel mengandung jumlah detail yang terlalu banyak",
-	"peacock": "artikel mengandung istilah hiperbola yang mempromosikan subjek tanpa informasi lengkap",
-	"plot": "ringkasan alur di artikel terlalu panjang",
-	"POV": "sudut pandang penulisan artikel tidak netral",
-	"primary sources": "artikel terlalu mengandalkan sumber primer, dan butuh sumber tambahan",
-	"prose": "artikel mengandung format yang lebih sesuai ditulis dalam bentuk prosa",
+	"more footnotes": "artikel ini sudah punya referensi, namun hanya punya sedikit catatan kaki",
+	"new unreviewed article": "tandai artikel ini untuk diperiksa nanti",
+	"news release": "gaya artikel ini mirip seperti berita",
+	"no footnotes": "artikel ini punya referensi, namun tidak punya catatan kaki",
+	"non-free": "artikel ini mungkin mengandung materi yang berhak cipta yang tidak digunakan sebagaimana mestinya",
+	"notability": "subjek artikel ini tidak memenuhi kelayakan",
+	"not Indonesian": "artikel ini tidak ditulis dalam bahasa Indonesia dan perlu diterjemahkan",
+	"one source": "artikel ini hanya merujuk pada sebuah sumber saja",
+	"original research": "artikel ini memiliki penggunaan riset asli klaim yang tidak terperiksa",
+	"orphan": "artikel ini tidak memiliki hubungan dengan artikel lain",
+	"overcoverage": "artikel ini mengandung anggapan atau cakupan tidak sesuai terhadap satu bagian atau lebih",
+	"overlinked": "artikel ini banyak mengandung pranala duplikat dan/atau tidak berhubungan",
+	"overly detailed": "artikel ini mengandung jumlah detail yang terlalu banyak",
+	"peacock": "artikel ini mengandung istilah hiperbola yang mempromosikan subjek tanpa informasi lengkap",
+	"plot": "ringkasan alur di artikel ini terlalu panjang",
+	"POV": "sudut pandang penulisan artikel ini tidak netral",
+	"primary sources": "artikel ini terlalu mengandalkan sumber primer, dan butuh sumber tambahan",
+	"prose": "artikel ini mengandung isi yang lebih sesuai ditulis dalam bentuk prosa",
 	"recentism": "artikel ini terlalu condong dengan peristiwa terkini",
-	"refimprove": "artikel perlu sumber tambahan untuk diperiksa",
-	"rough translation": "artikel sangat jelek penerjemahannya dan memerlukan perbaikan",
-	"sections": "artikel perlu dibagi dalam subbagian",
-	"self-published": "artikel mengandung sumber yang mungkin tak sesuai untuk sumber yang diterbitkan oleh diri sendiri",
-	"technical": "artikel mengandung banyak istilah yang rumit",
-	"tense": "artikel ditulis dalam gaya tidak sesuai",
-	"third-party": "artikel terlalu mengandalkan sumber kedua, dan butuh sumber ketiga",
-	"tone": "gaya penulisan tak sesuai",
-	"too few opinions": "artikel tidak mengandung keseluruhan sudut pandang yang penting",
-   "tugas sekolah": "artikel yang sedang digunakan untuk penilaian di sekolah/universitas",
-	"uncategorized": "artikel tidak ada kategori",
-	"under construction": "artikel sedang dalam tahap pengembangan",
-	"underlinked": "artikel perlu lebih banyak pranala wiki",
-	/* "undue": "article lends undue weight to certain aspects of the subject but not others" */
-	"unfocused": "artikel kurang memfokuskan subjek atau punya topik yang lebih dari satu",
-	"unreferenced": "artikel tidak punya referensi sama sekali",
-	"unreliable sources": "sumber artikel mungkin tidak dapat dipercaya",
-	"update": "artikel memerlukan informasi yang lebih aktual",
-	"very long": "artikel sangaaaat panjang",
-	"weasel": "kenetralan artikel diganggu oleh penggunaan kata bersayap"
+	"refimprove": "artikel ini memerlukan sumber tambahan untuk diperiksa",
+	"rough translation": "artikel ini sangat jelek penerjemahannya dan memerlukan perbaikan",
+	"sections": "artikel ini perlu dibagi dalam subbagian",
+	"self-published": "artikel ini mengandung sumber yang diterbitkan oleh diri sendiri",
+	"technical": "artikel ini mengandung banyak istilah yang rumit",
+	"tense": "artikel ini ditulis dalam gaya tidak sesuai",
+	"third-party": "artikel ini terlalu mengandalkan sumber kedua, dan butuh sumber ketiga",
+	"tone": "gaya penulisan artikel ini tak sesuai",
+	"too few opinions": "artikel ini tidak mengandung keseluruhan sudut pandang yang penting",
+	"tugas sekolah": "artikel ini sedang digunakan untuk penilaian di sekolah/universitas",
+	"uncategorized": "artikel ini tidak ada kategori sama sekali",
+	"under construction": "artikel ini sedang dalam tahap pengembangan",
+	"underlinked": "artikel ini perlu lebih banyak pranala wiki",
+	"unfocused": "artikel ini kurang memfokuskan subjek atau punya topik yang lebih dari satu",
+	"unreferenced": "artikel ini tidak punya referensi sama sekali",
+	"unreliable sources": "sumber artikel ini mungkin tidak dapat dipercaya",
+	"update": "artikel ini memerlukan informasi yang lebih aktual",
+	"very long": "artikel ini sangaaat panjang",
+	"weasel": "kenetralan artikel ini diganggu oleh penggunaan kata bersayap"
 };
 
 // A list of tags in order of category
@@ -563,9 +558,8 @@ Twinkle.tag.article.tagCategories = {
 			"context",
 			"expert-subject",
 			"metricate",
-			"overly detailed",
-			"undue"
-		],
+			"overly detailed"
+					],
 		"Keaktualan": [
 			"update"
 		],
@@ -595,9 +589,9 @@ Twinkle.tag.article.tagCategories = {
 			"unreliable sources"
 		]
 	},
-	"Masalah konten tertentu": {
+	"Masalah tertentu terkait konten artikel": {
 		"Bahasa": [
-			/ "not Indonesian",  // has a subgroup with several options
+			"not Indonesian",  // has a subgroup with several options
 			"rough translation",  // has a subgroup with several options
 			"expand language"
 		],
@@ -624,10 +618,9 @@ Twinkle.tag.article.tagCategories = {
 		"merge to"
 	],
 	"Informasi halaman": [
-		"GOCEinuse",
 		"in use",
 		"new unreviewed article",
-      "tugas sekolah",
+		"tugas sekolah",
 		"under construction"
 	]
 };
@@ -1128,10 +1121,10 @@ Twinkle.tag.callbacks = {
 				otherpage.load(Twinkle.tag.callbacks.main);
 			}
 
-			// post at WP:PNT for {{not English}} and {{rough translation}} tag
+			// post at WP:PNT for {{not Indonesian}} and {{rough translation}} tag
 			if (params.translationPostAtPNT) {
-				var pntPage = new Morebits.wiki.page('Wikipedia:Pages needing translation into English',
-					"Listing article at Wikipedia:Pages needing translation into English");
+				var pntPage = new Morebits.wiki.page('Kategori:Artikel yang perlu diterjemahkan',
+					"Daftar artikel ini di dalam Kategori:Artikel yang perlu diterjemahkan");
 				pntPage.setFollowRedirect(true);
 				pntPage.setCallbackParameters({
 					template: params.tags.indexOf("rough translation") !== -1 ? "duflu" : "needtrans",
@@ -1146,17 +1139,17 @@ Twinkle.tag.callbacks = {
 
 					// Disallow warning yourself
 					if (initialContrib === mw.config.get('wgUserName')) {
-						innerPageobj.getStatusElement().warn("Anda (" + initialContrib + ") yang membuat halaman ini; lewati pemberitahuan pengguna");
+						innerPageobj.getStatusElement().warn("Anda (" + initialContrib + ") merupakan pembuat halaman ini; lewati pemberitahuan pengguna");
 						return;
 					}
 
 					var userTalkPage = new Morebits.wiki.page('User talk:' + initialContrib,
-						'Notifying initial contributor (' + initialContrib + ')');
+						'Beritahukan penyunting awal (' + initialContrib + ')');
 					var notifytext = "\n\n== Artikel Anda [[" + Morebits.pageNameNorm + "]]==\n" +
-						"{{subst:uw-notenglish|1=" + Morebits.pageNameNorm +
+						"{{subst:uw-notindonesian|1=" + Morebits.pageNameNorm +
 						(params.translationPostAtPNT ? "" : "|nopnt=yes") + "}} ~~~~";
 					userTalkPage.setAppendText(notifytext);
-					userTalkPage.setEditSummary("Pemberitahuan: Gunakan bahasa Inggris ketika menulis di Wikipedia bahasa Indonesia." +
+					userTalkPage.setEditSummary("Pemberitahuan: Gunakan bahasa Indonesia ketika menulis di Wikipedia bahasa Indonesia." +
 						Twinkle.getPref('summaryAd'));
 					userTalkPage.setCreateOption('recreate');
 					userTalkPage.setFollowRedirect(true);
@@ -1189,7 +1182,7 @@ Twinkle.tag.callbacks = {
 		}
 
 		if (text === old_text) {
-			statelem.error('gagal menemukan tujuan untuk berdiskusi');
+			statelem.error('gagal menemukan tempat yang cocok untuk berdiskusi');
 			return;
 		}
 		pageobj.setPageText(text);
@@ -1362,7 +1355,7 @@ Twinkle.tag.callback.evaluate = function friendlytagCallbackEvaluate(e) {
 			params.mergeTarget = form["articleTags.mergeTarget"] ? form["articleTags.mergeTarget"].value : null;
 			params.mergeReason = form["articleTags.mergeReason"] ? form["articleTags.mergeReason"].value : null;
 			params.mergeTagOther = form["articleTags.mergeTagOther"] ? form["articleTags.mergeTagOther"].checked : false;
-			// common to {{not English}}, {{rough translation}}
+			// common to {{not Indonesian}}, {{rough translation}}
 			params.translationLanguage = form["articleTags.translationLanguage"] ? form["articleTags.translationLanguage"].value : null;
 			params.translationNotify = form["articleTags.translationNotify"] ? form["articleTags.translationNotify"].checked : null;
 			params.translationPostAtPNT = form["articleTags.translationPostAtPNT"] ? form["articleTags.translationPostAtPNT"].checked : null;
@@ -1376,7 +1369,7 @@ Twinkle.tag.callback.evaluate = function friendlytagCallbackEvaluate(e) {
 			params.tags = form.getChecked( 'redirectTags' );
 			break;
 		default:
-			alert("Twinkle.tag: moda tak dikenal " + Twinkle.tag.mode);
+			alert("Twinkle.tag: unknown mode " + Twinkle.tag.mode);
 			break;
 	}
 
@@ -1424,7 +1417,7 @@ Twinkle.tag.callback.evaluate = function friendlytagCallbackEvaluate(e) {
 			wikipedia_page.load(Twinkle.tag.callbacks.file);
 			return;
 		default:
-			alert("Twinkle.tag: moda tak dikenal " + Twinkle.tag.mode);
+			alert("Twinkle.tag: unknown mode " + Twinkle.tag.mode);
 			break;
 	}
 };
