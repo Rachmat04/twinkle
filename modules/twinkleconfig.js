@@ -307,7 +307,7 @@ Twinkle.config.sections = [
 			name: "openTalkPage",
 			label: "Buka halaman pembicaraan pengguna setelah pengembalian dengan cara ini:",
 			type: "set",
-			setValues: { agf: "Pengembalian ANB", norm: "Pengembalian normal", vand: "Pengembalian vandalisme", torev: "\"Kembalikan revisi ini\"" }
+			setValues: { agf: "AGF rollback", norm: "Normal rollback", vand: "Vandalism rollback", torev: "\"Restore this version\"" }
 		},
 
 		// TwinkleConfig.openTalkPageOnAutoRevert (bool)
@@ -325,7 +325,7 @@ Twinkle.config.sections = [
 			name: "markRevertedPagesAsMinor",
 			label: "Tandai sebagai suntingan kecil pada pengembalian ini",
 			type: "set",
-			setValues: { agf: "Pengembalian ANB", norm: "Pengembalian normal", vand: "Pengembalian vandalisme", torev: "\"Kembalikan revisi ini\"" }
+			setValues: { agf: "Pen"AGF rollback", norm: "Normal rollback", vand: "Vandalism rollback", torev: "\"Restore this version\"" }
 		},
 
 		// TwinkleConfig.watchRevertedPages (array)
@@ -334,7 +334,7 @@ Twinkle.config.sections = [
 			name: "watchRevertedPages",
 			label: "Tambahkan halaman ke daftar pantauan pada pengembalian ini",
 			type: "set",
-			setValues: { agf: "Pengembalian ANB", norm: "Pengembalian normal", vand: "Pengembalian vandalisme", torev: "\"Kembalikan revisi ini\"" }
+			setValues: { agf: "AGF rollback", norm: "Normal rollback", vand: "Vandalism rollback", torev: "\"Restore this version\"" }
 		},
 
 		// TwinkleConfig.offerReasonOnNormalRevert (boolean)
