@@ -257,7 +257,7 @@ Twinkle.block.callback.change_action = function twinkleblockCallbackChangeAction
 				display: 'none',
 				label: 'Artikel yang berkaitan',
 				value: '',
-				tooltip: 'Suatu artikel dapat ditautkan dengan pemberitahuan, mungkin yang menjadi sasaran perusakan. Kosongkan jika tidak ada.'
+				tooltip: 'Suatu artikel dapat ditautkan dengan pemberitahuan, yang mungkin yang menjadi sasaran perusakan. Kosongkan jika tidak ada.'
 			} );
 		if (!$form.find('[name=actiontype][value=block]').is(':checked')) {
 			field_template_options.append( {
