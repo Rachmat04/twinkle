@@ -93,7 +93,7 @@ Twinkle.unlink.callback = function(presetReason) {
 			'rawcontinue': true
 		};
 	}
-	var wikipedia_api = new Morebits.wiki.api( 'Mengambil pranala balik', query, Twinkle.unlink.callbacks.display.backlinks );
+	var wikipedia_api = new Morebits.wiki.api( 'Memeriksa pranala balik', query, Twinkle.unlink.callbacks.display.backlinks );
 	wikipedia_api.params = { form: form, Window: Window, image: mw.config.get('wgNamespaceNumber') === 6 };
 	wikipedia_api.post();
 
@@ -108,7 +108,7 @@ Twinkle.unlink.callback = function(presetReason) {
 Twinkle.unlink.callback.evaluate = function twinkleunlinkCallbackEvaluate(event) {
 	var reason = event.target.reason.value;
 	if (!reason) {
-		alert("Anda harus memberikan alasan untuk menghapus pranala.");
+		alert("Anda harus memberikan alasan mengapa menghapus pranala.");
 		return;
 	}
 
